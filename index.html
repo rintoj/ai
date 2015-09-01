@@ -24,6 +24,9 @@
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <script src="lib/js/jquery-2.1.1.js"></script>
+    <script src="lib/js/numeral.js"></script>
+
     <!-- Printing and PDF exports -->
     <script>
         var link = document.createElement('link');
@@ -35,7 +38,7 @@
 
     <!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+	<![endif]-->
 </head>
 
 <body>
@@ -257,58 +260,82 @@
 
             <section class="font-medium">
                 <h2><span class="dark">ML</span> - Movie Rating <small>Example</small></h2>
-
-                <div class="row">
-                    <div class="col">Viewer: </div>
+                <span class="fragment" data-fragment-action="resetMovieRating"></span>
+                <div class="row fragment">
+                    <h3 class="left-align">Viewer: </h3>
                     <table class="feature">
-                         <tr>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
+                        <tr>
+                            <td>Action</td>
+                            <td>Comedy</td>
+                            <td>Crime</td>
+                            <td>Biography</td>
+                            <td>..</td>
+                            <td>..</td>
+                            <td>90's</td>
+                            <td>Will Smith</td>
                         </tr>
                         <tr>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td>..</td>
+                            <td>..</td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="row fragment">
+                    <h3 class="left-align">Movie: </h3>
+                    <table class="feature">
+                        <tr>
+                            <td>Action</td>
+                            <td>Comedy</td>
+                            <td>Crime</td>
+                            <td>Biography</td>
+                            <td>..</td>
+                            <td>..</td>
+                            <td>90's</td>
+                            <td>Will Smith</td>
+                        </tr>
+                        <tr>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td>..</td>
+                            <td>..</td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
                         </tr>
                     </table>
                 </div>
                 
-                <div class="row" style="padding-top: 30px;">
-                    <div class="col">Movie: </div>
-                    <table class="feature">
-                         <tr>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                            <td>Feature1</td>
-                        </tr>
-                        <tr>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                            <td><span class="circle"></span></td>
-                        </tr>
-                    </table>
+                <span class="fragment" data-fragment-action="adjustRatingValues"></span>
+
+                <div style="margin-top: 70px">
+                    <div class="fragment rating"><span>User Rating</span> <span>4.31</span>
+                    </div>
+                    <div class="fragment rating" data-fragment-action="adjustRatingValues">
+                        <span>Calculated Rating</span> <span id="calculatedRating">0.00</span>
+                    </div>
                 </div>
+
+                <div class="fragment" data-fragment-action="calculateMovieRating"></div>
 
             </section>
 
@@ -318,6 +345,7 @@
 
     <script src="lib/js/head.min.js "></script>
     <script src="js/reveal.js "></script>
+    <script src="js/slider.js "></script>
 
     <script>
         // Full list of configuration options available at:
@@ -328,6 +356,7 @@
             history: true,
             center: true,
 
+            slideNumber: 'c / t',
             transition: 'slide', // none/fade/slide/convex/concave/zoom
 
             // Parallax background image

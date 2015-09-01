@@ -22,8 +22,11 @@
   color: #F34800;
   font-style: normal;
 }
-.reveal section {
-  background: rgba(255, 255, 255, 0.6);
+.reveal .progress span {
+  background: #FE001B;
+}
+.reveal .slide-number {
+  color: #FE001B;
 }
 .reveal section img {
   margin: 5px 0px;
@@ -33,6 +36,68 @@
 .reveal section img.round {
   border-radius: 60px;
   border: 1px solid lightgray;
+}
+.reveal section > * {
+  position: relative;
+  z-index: 2;
+}
+.reveal section:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.91);
+  content: " ";
+  z-index: 1;
+  padding: 30px;
+  margin-top: -30px;
+  margin-left: -30px;
+  /* -webkit-filter: blur(25px); */
+}
+.reveal section .circle {
+  width: 5px;
+  height: 5px;
+  background: red;
+  border-radius: 200px;
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  transition: all .6s ease;
+}
+.reveal section .circle:after {
+  content: attr(data-value);
+  top: -47px;
+  position: relative;
+  left: -18px;
+  background-color: #585858;
+  color: white;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 17px;
+}
+.reveal section .rating {
+  display: inline-block;
+  margin: 0px 40px;
+}
+.reveal section .rating span {
+  vertical-align: bottom;
+  display: block;
+}
+.reveal section .rating span:first-child {
+  font-size: 30px;
+}
+.reveal section .rating span:last-child {
+  font-size: 50px;
+}
+.reveal section .rating:first-child.current-fragment {
+  margin-right: -30%;
+}
+.reveal section .rating:first-child span {
+  color: crimson;
+}
+.reveal section .rating:last-child span {
+  color: dodgerblue;
 }
 .reveal table tr td {
   vertical-align: middle;
@@ -51,20 +116,37 @@
   white-space: nowrap;
 }
 .reveal table.feature tr td {
-  font-size: 16px;
-  border-right: 1px solid lightgray;
-  padding: 5px;
+  font-size: 20px;
+  padding: 10px;
+  width: 10%;
+  height: 50px;
+}
+.reveal table.feature tr td:nth-child(1) .circle {
+  background: #cddc39;
+}
+.reveal table.feature tr td:nth-child(2) .circle {
+  background: #00695c;
+}
+.reveal table.feature tr td:nth-child(3) .circle {
+  background: #283593;
+}
+.reveal table.feature tr td:nth-child(4) .circle {
+  background: #e65100;
+}
+.reveal table.feature tr td:nth-child(5) .circle {
+  background: #4527a0;
+}
+.reveal table.feature tr td:nth-child(6) .circle {
+  background: #b71c1c;
+}
+.reveal table.feature tr td:nth-child(7) .circle {
+  background: #880e4f;
+}
+.reveal table.feature tr td:nth-child(8) .circle {
+  background: #4a148c;
 }
 .reveal table.ml tr td {
   padding: 5px 0px;
-}
-.reveal .circle {
-  width: 5px;
-  height: 5px;
-  background: red;
-  border-radius: 200px;
-  display: block;
-  margin: 0 auto;
 }
 .reveal .cross {
   color: red;

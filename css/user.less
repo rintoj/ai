@@ -1,0 +1,114 @@
+@import "font-awesome-4.3.0/css/font-awesome.min.css";
+.font-size(@size: 1) {
+    font-size: 1px*(50 - @size*5);
+}
+
+.reveal {
+    font-size: 32px;
+    h1, h2, h3, h4, h5, h6 {
+        text-transform: inherit;
+    }
+    h2 {
+        border-bottom: 2px solid #FF5D00;
+        margin-bottom: 30px;
+    }
+    blockquote {
+        background: rgba(0, 0, 0, 0.05);
+    }
+    .dark {
+        color: #F34800;
+        font-style: normal;
+    }
+    section {
+        background: rgba(255, 255, 255, 0.6);
+        img {
+            margin: 5px 0px;
+            box-shadow: none;
+            border: none;
+            &.round {
+                border-radius: 60px;
+                border: 1px solid lightgray;
+            }
+        }
+    }
+    table {
+        tr {
+            td {
+                vertical-align: middle;
+                text-align: center;
+                padding: 20px 40px;
+                border-bottom: 2px solid #E6E1E1;
+                &.nowrap {
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+    table.questions {
+        tr {
+            td {
+                vertical-align: middle;
+                text-align: left;
+                padding: 5px 20px;
+                .font-size(5);
+                white-space: nowrap;
+            }
+        }
+    }
+     table.feature {
+        tr {
+            td {
+                font-size: 16px;
+                border-right: 1px solid lightgray;
+                padding: 5px;
+            }
+        }
+    }
+    table.ml {
+        tr {
+            td {
+                padding: 5px 0px;
+            }
+        }
+    }
+    .circle {
+        width: 5px;
+        height: 5px;
+        background: red;
+        border-radius: 200px;
+        display: block;
+        margin: 0 auto;
+    }
+    .cross {
+        color: red;
+        font-weight: bolder;
+    }
+    .font-medium {
+        .font-size(5);
+    }
+    .font-small {
+        .font-size(6);
+    }
+    .font-very-small {
+        .font-size(7);
+    }
+    .item {
+        text-align: left;
+    }
+    .left-align,
+    .left-align * {
+        text-align: left;
+    }
+    .green {
+        color: green;
+    }
+    .red {
+        color: red;
+    }
+    .yellow {
+        color: goldenrod;
+    }
+    .small-margin {
+        padding: 5px;
+    }
+}

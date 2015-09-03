@@ -1,6 +1,6 @@
 @import "font-awesome-4.3.0/css/font-awesome.min.css";
 .font-size(@size: 1) {
-    font-size: 1px*(50 - @size*5);
+    font-size: 1px*(50-@size*5);
 }
 
 .reveal {
@@ -9,7 +9,7 @@
         text-transform: inherit;
     }
     h2 {
-        border-bottom: 2px solid #FF5D00;
+        border-bottom: 5px solid #F34800;
         margin-bottom: 30px;
     }
     blockquote {
@@ -24,6 +24,9 @@
     }
     .slide-number {
         color: #FE001B;
+    }
+    .backgrounds {
+        -webkit-filter: blur(10px);
     }
     section {
         img {
@@ -45,13 +48,12 @@
             left: 0;
             height: 100%;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.91);
+            background-color: rgba(255, 255, 255, 0.8);
             content: " ";
             z-index: 1;
             padding: 30px;
             margin-top: -30px;
             margin-left: -30px;
-            /* -webkit-filter: blur(25px); */
         }
         .circle {
             width: 5px;
@@ -64,14 +66,17 @@
             transition: all .6s ease;
             &:after {
                 content: attr(data-value);
-                top: -47px;
+                top: -44px;
                 position: relative;
-                left: -18px;
+                left: -20px;
                 background-color: #585858;
                 color: white;
-                padding: 1px 5px;
                 border-radius: 4px;
                 font-size: 17px;
+                height: 22px;
+                display: block;
+                width: 43px;
+                text-align: center;
             }
         }
         .rating {
@@ -100,6 +105,53 @@
                 color: dodgerblue;
             }
         }
+        .panel {
+            display: flex;
+            &.horizontal {
+                flex-direction: column;
+            }
+            > * {
+                margin: 20px;
+            }
+        }
+        li {
+            list-style: circle;
+            margin-left: 10px;
+        }
+        .reference {
+            font-size: 20px;
+            width: 100%;
+            li {
+                color: #333333;
+                a {
+                    color: #8A8787;
+                    font-size: 16px;
+                    display: inline-block;
+                    margin-bottom: 15px;
+                }
+                b {
+                    color: #0D0E54;
+                    width: 30%;
+                    display: block;
+                }
+                .tag {
+                    padding: 2px 5px;
+                    background-color: #F34800;
+                    margin: 2px;
+                    display: inline-block;
+                    border-radius: 3px;
+                    font-size: 12px;
+                    color: white;
+                    vertical-align: middle;
+                    &.green {
+                        background-color: #16AF05;
+                    }
+                    &.blue {
+                        background-color: #007BFF;
+                    }
+                }
+            }
+        }
     }
     table {
         tr {
@@ -107,7 +159,7 @@
                 vertical-align: middle;
                 text-align: center;
                 padding: 20px 40px;
-                border-bottom: 2px solid #E6E1E1;
+                border-bottom: 2px solid #FFF;
                 &.nowrap {
                     white-space: nowrap;
                 }
@@ -197,5 +249,33 @@
     }
     .small-margin {
         padding: 5px;
+    }
+}
+
+.footer {
+    bottom: 0;
+    height: 10%;
+    position: fixed;
+    padding: 20px;
+    display: block;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(241, 240, 240, 0.6);
+
+    input {
+        border: none;
+        width: 80%;
+        margin: 0 auto;
+        height: 30px;
+        display: block;
+        line-height: 30px;
+        border-radius: 3px;
+        font-size: 16px;
+        outline: none;
+        padding: 2px 5px;
+        transition: all .3s ease;
+        &:focus {
+            box-shadow: 2px 5px 5px lightgray;
+        }
     }
 }

@@ -26,6 +26,8 @@
 
     <script src="lib/js/jquery-2.1.1.js"></script>
     <script src="lib/js/numeral.js"></script>
+    <script src="lib/js/nlp.min.js"></script>
+    <script src="lib/js/go-vis-1.1.js"></script>
 
     <!-- Printing and PDF exports -->
     <script>
@@ -37,8 +39,8 @@
     </script>
 
     <!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-	<![endif]-->
+        <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -48,7 +50,7 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
 
-            <section>
+            <!--<section>
                 <div>
                     <br>
                     <br>
@@ -57,7 +59,8 @@
                     <div><small style="vertical-align: middle">by</small> Rinto Jose</div>
                     <small>Tuesday, 1st Sep 2015 <br> rinto.jose@tcs.com</small>
                     <aside class="notes">
-                        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if
+                        you open the speaker notes window (hit 's' on your keyboard).
                     </aside>
                 </div>
             </section>
@@ -259,40 +262,8 @@
             </section>
 
             <section class="font-medium">
-                <h2><span class="dark">ML</span> - Movie Rating <small>Example</small></h2>
-                <span class="fragment" data-fragment-action="resetMovieRating"></span>
-                <div class="row fragment">
-                    <h3 class="left-align">Viewer: </h3>
-                    <table class="feature">
-                        <tr>
-                            <td>Action</td>
-                            <td>Comedy</td>
-                            <td>Crime</td>
-                            <td>Biography</td>
-                            <td>..</td>
-                            <td>..</td>
-                            <td>90's</td>
-                            <td>Will Smith</td>
-                        </tr>
-                        <tr>
-                            <td><span class="circle"></span>
-                            </td>
-                            <td><span class="circle"></span>
-                            </td>
-                            <td><span class="circle"></span>
-                            </td>
-                            <td><span class="circle"></span>
-                            </td>
-                            <td>..</td>
-                            <td>..</td>
-                            <td><span class="circle"></span>
-                            </td>
-                            <td><span class="circle"></span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
+                <h2>Movie Recommendation <small class="dark">ML</small></h2>
+                <span class="fragment" data-fragment-action-in="resetMovieRating"></span>
                 <div class="row fragment">
                     <h3 class="left-align">Movie: </h3>
                     <table class="feature">
@@ -324,94 +295,190 @@
                         </tr>
                     </table>
                 </div>
-                
-                <span class="fragment" data-fragment-action="adjustRatingValues"></span>
+
+                <div class="row fragment">
+                    <h3 class="left-align">User: </h3>
+                    <table class="feature">
+                        <tr>
+                            <td>Action</td>
+                            <td>Comedy</td>
+                            <td>Crime</td>
+                            <td>Biography</td>
+                            <td>..</td>
+                            <td>..</td>
+                            <td>90's</td>
+                            <td>Will Smith</td>
+                        </tr>
+                        <tr>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td>..</td>
+                            <td>..</td>
+                            <td><span class="circle"></span>
+                            </td>
+                            <td><span class="circle"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <span class="fragment" data-fragment-action-in="adjustRatingValues"></span>
+
+                <span class="fragment" data-fragment-action-in="resetMovieRating"></span>
+                <span class="fragment" data-fragment-action-in="adjustRatingValues"></span>
 
                 <div style="margin-top: 70px">
                     <div class="fragment rating"><span>User Rating</span> <span>4.31</span>
                     </div>
-                    <div class="fragment rating" data-fragment-action="adjustRatingValues">
+                    <div class="fragment rating" data-fragment-action-in="adjustRatingValues">
                         <span>Calculated Rating</span> <span id="calculatedRating">0.00</span>
                     </div>
                 </div>
 
-                <div class="fragment" data-fragment-action="calculateMovieRating"></div>
+                <div class="fragment" data-fragment-action-in="calculateMovieRating"></div>
 
             </section>
+
+            <section>
+                <h2>Essentials of <span class="dark">M</span>achine <span class="dark">L</span>earning</h2>
+
+                <div class="panel horizontal fragment" data-fragment-action-in="createChart1">
+                    <div>
+                        <div class="fragment" data-fragment-action-out="clearChart1Data">You must have <span class="dark">data</span>
+                        </div>
+                        <div class="fragment" data-fragment-action-in="updateChart1WithRandomData"></div>
+                        <div class="fragment" data-fragment-action-out="updateChart1WithRandomData">A <span class="dark">pattern</span> must exist</div>
+                        <div class="fragment" data-fragment-action-in="updateChart1WithOrganizedData1"></div>
+                        <div class="fragment" data-fragment-action-out="updateChart1WithOrganizedData1">The pattern may not be <span class="dark">mathematically identifiable</span>
+                        </div>
+                        <div class="fragment" data-fragment-action-in="updateChart1WithOrganizedData2"></div>
+                        <div class="fragment" data-fragment-action-in="updateChart1WithOrganizedDataColored2" data-fragment-action-out="updateChart1WithOrganizedData2"></div>
+                    </div>
+                    <div id="chart1" style="margin: 0 auto; width: 900px; height: 350px"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="dark">Types</span> of Learning</h2>
+                <h3>Supervised learning</h3>
+                <blockquote class="font-small">The computer is presented with example inputs and their desired outputs, given by a "teacher", and the goal is to learn a general rule that maps inputs to outputs.</blockquote>
+                <h3>Unsupervised learning</h3>
+                <blockquote class="font-small">No labels are given to the learning algorithm, leaving it on its own to find structure in its input. Unsupervised learning can be a goal in itself (discovering hidden patterns in data) or a means towards an end.</blockquote>
+                <h3>Reinforcement learning</h3>
+                <blockquote class="font-small">A computer program interacts with a dynamic environment in which it must perform a certain goal (such as driving a vehicle), without a teacher explicitly telling it whether it has come close to its goal or not. Another example is learning to play a game by playing against an opponent.</blockquote>
+            </section>
+
+            <section>
+                <h2><span class="dark">Supervised</span> Learning</h2>
+                <div id="chart1" style="margin: 0 auto; width: 900px; height: 350px" class="fragment" data-fragment-action-in="createChart1"></div>
+                <span class="fragment" data-fragment-action-in="updateChart1WithOrganizedDataColored2" data-fragment-action-out="createChart1"></span>
+            </section>
+
+            <section>
+                <h2><span class="dark">Supervised</span> Learning</h2>
+                <h3>Algorithms</h3>
+                <div>Linear classifiers (eg: Naive Bayes classifier)</div>
+                <div>Quadratic classifiers</div>
+                <div>Artificial neural network (eg: Backpropagation)</div>
+                <div>Decision trees</div>
+                <div>Hidden Markov models</div>
+                <h3 style="margin-top: 30px;">Applications</h3>
+                <div>Analytical learning</div>
+                <div>Spam classification</div>
+                <div>Data Pre-processing and cleansing</div>
+                <div class="dark">Predictive modeling</div>
+            </section>
+
+            <section>
+                <h2><span class="dark">Unsupervised</span> Learning</h2>
+                <div id="chart1" style="margin: 0 auto; width: 900px; height: 350px" class="fragment" data-fragment-action-in="createChart1"></div>
+                <span class="fragment" data-fragment-action-in="updateChart1WithOrganizedDataColored3" data-fragment-action-out="createChart1"></span>
+                <span class="fragment" data-fragment-action-in="updateChart1WithOrganizedDataColored4" data-fragment-action-out="updateChart1WithOrganizedDataColored3"></span>
+            </section>
+
+            <section>
+                <h2><span class="dark">Unsupervised</span> Learning</h2>
+                <h3>Algorithms</h3>
+                <div>Expectation–maximization algorithm </div>
+                <div>Multilinear subspace learning</div>
+                <h3 style="margin-top: 30px;">Applications</h3>
+                <div class="dark">Data clustering (exploratory data mining)</div>
+                <div>Image analysis</div>
+                <div>Computer vision</div>
+            </section>
+
+            <section>
+                <h2><span class="dark">Reinforcement</span> Learning</h2>
+                <div style="width: 800px; vertical-align: middle; margin: 12% auto;font-size: 138px;text-shadow: 2px 4px 15px #6B6B6B;">D E M O</div>
+            </section>
+
+            <section>
+                <h2><i class="dark">A</i>rtifical <i class="dark">I</i>ntelligence</h2>
+                <div style="width: 800px; vertical-align: middle; margin: 12% auto;font-size: 138px;text-shadow: 2px 4px 15px #6B6B6B;">Questions?</div>
+            </section>
+
+            <section>
+                <h2><span class="dark">References</span></h2>
+                <ul class="font-very-small reference">
+                    <li>
+                        <b>Machine learning frameworks</b> <span class="tag">List</span>
+                        <a href="https://github.com/josephmisiti/awesome-machine-learning">https://github.com/josephmisiti/awesome-machine-learning</a>
+                    </li>
+                    <li>
+                        <b>Machine Learning</b> <span class="tag">Wiki</span>
+                        <a href="https://en.wikipedia.org/wiki/Machine_learning">https://en.wikipedia.org/wiki/Machine_learning</a>
+                    </li>
+                    <li>
+                        <b>Natural Language Processing</b> <span class="tag">Book</span>
+                        <a href="http://www.nltk.org/book_1ed/">http://www.nltk.org/book_1ed/</a>
+                    </li>
+                    <li>
+                        <b>Natural Language Processing</b> <span class="tag">Toolkit</span>
+                        <a href="http://www.nltk.org/">http://www.nltk.org</a>
+                    </li>
+                    <li>
+                        <b>Scalable Machine Learning</b> <span class="tag">Free Course</span><span class="tag green">UC BerkeleyX</span>
+                        <a href="https://www.edx.org/course/scalable-machine-learning-uc-berkeleyx-cs190-1x">https://www.edx.org/course/scalable-machine-learning-uc-berkeleyx-cs190-1x</a>
+                    </li>
+                    <li>
+                        <b>Natural Language Processing</b> <span class="tag">Free Course</span><span class="tag green">Stanford University</span>
+                        <a href="https://www.coursera.org/course/nlp">https://www.coursera.org/course/nlp</a>
+                    </li>
+                    <li>
+                        <b>CS188.1x Artificial Intelligence</b> <span class="tag">Free Course</span><span class="tag blue">Pacman</span><span class="tag green">UC BerkeleyX</span>
+                        <a href="https://courses.edx.org/courses/BerkeleyX/CS188.1x/2012_Fall/">https://courses.edx.org/courses/BerkeleyX/CS188.1x/2012_Fall/</a>
+                    </li>
+                    <li>
+                        <b>Text Mining and Analytics</b> <span class="tag">Professional Course</span>
+                        <a href="https://www.edx.org/course/text-mining-analytics-delftx-txt1x">https://www.edx.org/course/text-mining-analytics-delftx-txt1x</a>
+                    </li>
+
+                </ul>
+            </section>
+
+            <section>
+                <div style="width: 800px; vertical-align: middle; margin: 12% auto;font-size: 138px;text-shadow: 2px 4px 15px #6B6B6B;">Thank you
+                    <small style="font-size: 26px; text-shadow: none"> for being such great audience. </small>
+                </div>
+            </section>-->
 
         </div>
 
     </div>
 
+    <nav class="footer">
+        <input id="context">
+    </nav>
+
     <script src="lib/js/head.min.js "></script>
     <script src="js/reveal.js "></script>
     <script src="js/slider.js "></script>
-
-    <script>
-        // Full list of configuration options available at:
-        // https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: false,
-            progress: true,
-            history: true,
-            center: true,
-
-            slideNumber: 'c / t',
-            transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-            // Parallax background image
-            parallaxBackgroundImage: 'css/images/background-4.jpg',
-
-            // Parallax background size
-            parallaxBackgroundSize: '2560px 1500px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
-
-            // Amount of pixels to move the parallax background per slide step,
-            // a value of 0 disables movement along the given axis
-            // These are optional, if they aren't specified they'll be calculated automatically
-            parallaxBackgroundHorizontal: 200,
-            parallaxBackgroundVertical: 50,
-
-            // Optional reveal.js plugins
-            dependencies: [
-                {
-                    src: 'lib/js/classList.js',
-                    condition: function () {
-                        return !document.body.classList;
-                    }
-                },
-                {
-                    src: 'plugin/markdown/marked.js',
-                    condition: function () {
-                        return !!document.querySelector('[data-markdown]');
-                    }
-                },
-                {
-                    src: 'plugin/markdown/markdown.js',
-                    condition: function () {
-                        return !!document.querySelector('[data-markdown]');
-                    }
-                },
-                {
-                    src: 'plugin/highlight/highlight.js',
-                    async: true,
-                    condition: function () {
-                        return !!document.querySelector('pre code');
-                    },
-                    callback: function () {
-                        hljs.initHighlightingOnLoad();
-                    }
-                },
-                {
-                    src: 'plugin/zoom-js/zoom.js',
-                    async: true
-                },
-                {
-                    src: 'plugin/notes/notes.js',
-                    async: true
-                }
-    ]
-        });
-    </script>
 
 </body>
 

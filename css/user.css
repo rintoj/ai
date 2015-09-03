@@ -12,7 +12,7 @@
   text-transform: inherit;
 }
 .reveal h2 {
-  border-bottom: 2px solid #FF5D00;
+  border-bottom: 5px solid #F34800;
   margin-bottom: 30px;
 }
 .reveal blockquote {
@@ -27,6 +27,9 @@
 }
 .reveal .slide-number {
   color: #FE001B;
+}
+.reveal .backgrounds {
+  -webkit-filter: blur(10px);
 }
 .reveal section img {
   margin: 5px 0px;
@@ -47,13 +50,12 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.91);
+  background-color: rgba(255, 255, 255, 0.8);
   content: " ";
   z-index: 1;
   padding: 30px;
   margin-top: -30px;
   margin-left: -30px;
-  /* -webkit-filter: blur(25px); */
 }
 .reveal section .circle {
   width: 5px;
@@ -67,14 +69,17 @@
 }
 .reveal section .circle:after {
   content: attr(data-value);
-  top: -47px;
+  top: -44px;
   position: relative;
-  left: -18px;
+  left: -20px;
   background-color: #585858;
   color: white;
-  padding: 1px 5px;
   border-radius: 4px;
   font-size: 17px;
+  height: 22px;
+  display: block;
+  width: 43px;
+  text-align: center;
 }
 .reveal section .rating {
   display: inline-block;
@@ -99,11 +104,58 @@
 .reveal section .rating:last-child span {
   color: dodgerblue;
 }
+.reveal section .panel {
+  display: flex;
+}
+.reveal section .panel.horizontal {
+  flex-direction: column;
+}
+.reveal section .panel > * {
+  margin: 20px;
+}
+.reveal section li {
+  list-style: circle;
+  margin-left: 10px;
+}
+.reveal section .reference {
+  font-size: 20px;
+  width: 100%;
+}
+.reveal section .reference li {
+  color: #333333;
+}
+.reveal section .reference li a {
+  color: #8A8787;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.reveal section .reference li b {
+  color: #0D0E54;
+  width: 30%;
+  display: block;
+}
+.reveal section .reference li .tag {
+  padding: 2px 5px;
+  background-color: #F34800;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 12px;
+  color: white;
+  vertical-align: middle;
+}
+.reveal section .reference li .tag.green {
+  background-color: #16AF05;
+}
+.reveal section .reference li .tag.blue {
+  background-color: #007BFF;
+}
 .reveal table tr td {
   vertical-align: middle;
   text-align: center;
   padding: 20px 40px;
-  border-bottom: 2px solid #E6E1E1;
+  border-bottom: 2px solid #FFF;
 }
 .reveal table tr td.nowrap {
   white-space: nowrap;
@@ -179,4 +231,30 @@
 }
 .reveal .small-margin {
   padding: 5px;
+}
+.footer {
+  bottom: 0;
+  height: 10%;
+  position: fixed;
+  padding: 20px;
+  display: block;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(241, 240, 240, 0.6);
+}
+.footer input {
+  border: none;
+  width: 80%;
+  margin: 0 auto;
+  height: 30px;
+  display: block;
+  line-height: 30px;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;
+  padding: 2px 5px;
+  transition: all .3s ease;
+}
+.footer input:focus {
+  box-shadow: 2px 5px 5px lightgray;
 }

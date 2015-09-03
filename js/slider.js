@@ -227,7 +227,7 @@
             transition: 'slide', // none/fade/slide/convex/concave/zoom
 
             // Parallax background image
-            // parallaxBackgroundImage: 'css/images/background-2.jpg',
+            parallaxBackgroundImage: 'css/images/background-2.jpg',
 
             // Parallax background size
             //parallaxBackgroundSize: '2444px 1636px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
